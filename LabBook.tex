@@ -1,0 +1,323 @@
+%%% Laboratory   Notes
+%%% Template by Mikhail Klassen, April 2013
+%%% Contributions from Sarah Mount, May 2014
+\documentclass[nobib,nols,a4paper,twoside,symmetric,justified,notoc]{tufte-book}
+
+\newcommand{\userName}{Jacob Denson}
+
+\lhead{\textsc{\userName}}
+\chead{\textsc{Lab Notes}}
+\cfoot{~~\textit{Last modified: \today}}
+\rfoot{\textsc{\thepage}}
+
+\usepackage{natbib}
+\usepackage{comment}
+
+% TOC
+\usepackage{lipsum,mdframed}
+\definecolor{secnum}{RGB}{13,151,225}
+\definecolor{ptcbackground}{RGB}{212,237,252}
+\definecolor{ptctitle}{RGB}{0,177,235}
+\usepackage{titletoc}
+\usepackage{etoolbox}
+\setcounter{tocdepth}{1}
+\pretocmd{\tableofcontents}{\begin{mdframed}[backgroundcolor=ptcbackground,outermargin=\dimexpr-\marginparwidth-\marginparsep\relax,innermargin=0pt,hidealllines=true]\let\cleardoublepage\relax}{}{}
+\apptocmd{\tableofcontents}{\end{mdframed}}{}{}
+
+% COLORS (Tango) Mostly by Philip Bunge
+% http://pbunge.crimson.ch/
+\definecolor{White}{gray}{0.9}
+\definecolor{Black}{gray}{0.0}
+\definecolor{LightButter}{rgb}{0.98,0.91,0.31}
+\definecolor{LightOrange}{rgb}{0.98,0.68,0.24}
+\definecolor{LightChocolate}{rgb}{0.91,0.72,0.43}
+\definecolor{LightChameleon}{rgb}{0.54,0.88,0.20}
+\definecolor{LightSkyBlue}{rgb}{0.45,0.62,0.81}
+\definecolor{LightPlum}{rgb}{0.68,0.50,0.66}
+\definecolor{LightScarletRed}{rgb}{0.93,0.16,0.16}
+\definecolor{Butter}{rgb}{0.93,0.86,0.25}
+\definecolor{Orange}{rgb}{0.96,0.47,0.00}
+\definecolor{Chocolate}{rgb}{0.75,0.49,0.07}
+\definecolor{Chameleon}{rgb}{0.45,0.82,0.09}
+\definecolor{SkyBlue}{rgb}{0.20,0.39,0.64}
+\definecolor{Plum}{rgb}{0.46,0.31,0.48}
+\definecolor{ScarletRed}{rgb}{0.80,0.00,0.00}
+\definecolor{DarkButter}{rgb}{0.77,0.62,0.00}
+\definecolor{DarkOrange}{rgb}{0.80,0.36,0.00}
+\definecolor{DarkChocolate}{rgb}{0.56,0.35,0.01}
+\definecolor{DarkChameleon}{rgb}{0.30,0.60,0.02}
+\definecolor{DarkSkyBlue}{rgb}{0.12,0.29,0.53}
+\definecolor{DarkPlum}{rgb}{0.36,0.21,0.40}
+\definecolor{DarkScarletRed}{rgb}{0.64,0.00,0.00}
+\definecolor{Aluminium1}{rgb}{0.93,0.93,0.92}
+\definecolor{Aluminium2}{rgb}{0.82,0.84,0.81}
+\definecolor{Aluminium3}{rgb}{0.73,0.74,0.71}
+\definecolor{Aluminium4}{rgb}{0.53,0.54,0.52}
+\definecolor{Aluminium5}{rgb}{0.33,0.34,0.32}
+\definecolor{Aluminium6}{rgb}{0.18,0.20,0.21}
+
+\usepackage{hyperref}
+\hypersetup{
+    pdffitwindow=false,            % window fit to page
+    pdfstartview={Fit},            % fits width of page to window
+    pdftitle={Lab notes 2014},     % document title
+    pdfauthor={Your Name},         % author name
+    pdfsubject={},                 % document topic(s)
+    pdfnewwindow=true,             % links in new window
+    colorlinks=true,               % coloured links, not boxed
+    linkcolor=DarkScarletRed,      % colour of internal links
+    citecolor=DarkChameleon,       % colour of links to bibliography
+    filecolor=DarkPlum,            % colour of file links
+    urlcolor=DarkSkyBlue           % colour of external links
+}
+
+\newenvironment{importanttodo}%
+    {\subsection{Important To Do List}}%
+    {\vspace{2mm}\hrule\hspace{\stretch{1}}\\}
+
+\newenvironment{maybedo}%
+    {\subsection{Maybe Do}}%
+    {\vspace{2mm}\hrule\hspace{\stretch{1}}\\}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\DeclareMathOperator{\TT}{\mathbf{T}}
+\DeclareMathOperator{\ZZ}{\mathbf{Z}}
+\DeclareMathOperator{\RR}{\mathbf{R}}
+\DeclareMathOperator{\CC}{\mathbf{C}}
+
+\DeclareMathOperator{\fordim}{\text{dim}_{\mathbf{F}}}
+\DeclareMathOperator{\minkdim}{\text{dim}_{\mathbf{M}}}
+
+\title{Laboratory Journal}
+\author{Jacob Denson}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\chapter{Saturday, 30 May 2020}
+
+\begin{importanttodo}
+\begin{itemize}
+    \item Formally prove the space $X$ given by the norms in \eqref{OurFrechetSpace} is complete.
+
+    \item Try and understand the probabistic smoothness calculations given in Lemma 7.4 of \cite{Korner2009}. Once this is done, we can try adapting it to our more general situation.
+\end{itemize}
+\end{importanttodo}
+
+\begin{maybedo}
+\begin{itemize}
+    \item Today I found an interesting survey on the Fourier Dimension \cite{Ekstrom2017}. If I find the time I should read through it more thoroughly to get some intuition.
+
+    \item I also found a survey on the application of the probabilistic method and the Baire category theorem in Harmonic analysis \cite{Kahane2000}. I feel this method is very exploitable in the types of problems I currently deal with, so if only for culture, this should be a useful read.
+\end{itemize}
+\end{maybedo}
+
+My main goals today were to finish up the slides, for my talk on Fourier dimension in pattern avoidance problems at the 2020 Ottawa Math Conference. I have essentially completed these slides; all that remains is to polish them up, and practice giving the presentation. My main goal during the presentation is to show that viewing avoiding sets $Z$ geometrically leads to interesting questions, that the geometric quantities we consider lead to important consequences, and that the Fourier dimension question I am currently considering is interesting to study. I also thought about an idea which seemed to prevent adapting our result obtained by the `queuing approach' in \cite{Denson2019} to Thomas K\"{o}rner's Baire category approach in \cite{Korner2009}, as well as finding a counterexample in a paper which removes the trivial case of \cite{Denson2019} from the Fourier dimension case.
+
+%-----------------------------------------
+
+\section{Ideas for Fourier Dimension Technique} \label{IdeasForFourierDimensionTechnique}
+
+Thomas K\"{o}rner's paper \cite{Korner2009} relies on Baire category arguments to construct generic measures $\mu$ supported on a subset of $\TT$ avoiding solutions to $m$-term linear equations, such that for each $\xi \in \ZZ$,
+%
+\begin{equation} \label{Korner2009Bound}
+    |\widehat{\mu}(\xi)| \leq A(\xi).\footnotemark
+\end{equation}
+%
+\footnotetext{Here $\{ A(\xi) \}$ is a sequence given for each $\xi \in \ZZ$ by the formula
+%
+\[ A(\xi) = B(\xi) |\xi|^{-\beta/2} \log(1 + |\xi|)^{1/2}, \]
+%
+where $\beta = (n-1)^{-1}$, and $\{ B(\xi) \}$ is some fixed sequence of positive numbers such that $B(\xi) \to \infty$ as $|\xi| \to \infty$.}%
+%
+To obtain this bound generically, K\"{o}rner works in the norm space $X$ consisting of finite measures $\mu$ on $\TT$ such that the quantity
+%
+\begin{equation} \label{KornerBanachSpace}
+    \| \mu \|_X = \sup_{\xi \in \ZZ} \frac{|\widehat{\mu}(\xi)|}{A(\xi)}.
+\end{equation}
+%
+is finite. Then any measure in $X$ satisfies \eqref{Korner2009Bound} up to a multiplicative constant, and $X$ is a Banach space, which enables one to use Baire-category techniques. A problem occurs in our Fourier dimension paper because I believe we can only construct finite measures $\mu$ such that for each $\varepsilon > 0$,
+%
+\begin{equation} \label{OurFourierDimensionBound}
+    |\widehat{\mu}(\xi)| \lesssim_\varepsilon |\xi|^{\varepsilon-\beta/2}.
+\end{equation}
+%
+Such a measure does not satisfy quite as rigid an inequality as \eqref{Korner2009Bound}, instead having to satisfy infinitely many inequalities, and as such I do not believe we can find a Banach space norm which encapsulates \eqref{OurFourierDimensionBound}.
+
+However, today I thought of an idea which might prove fruitful. For any measure $\mu$ satisfying $\eqref{OurFourierDimensionBound}$ for each $\varepsilon > 0$, the quantities
+%
+\begin{equation} \label{OurFrechetSpace}
+    \| \mu \|_\varepsilon = \sup_{\xi \in \ZZ} |\widehat{\mu}(\xi)| |\xi|^{\beta/2-\varepsilon}
+\end{equation}
+%
+will be finite for all $\varepsilon > 0$. If we let $X$ denote the family of all finite measures which satisfy \eqref{OurFrechetSpace} for all $\varepsilon > 0$, then the collection of seminorms $\{ \| \cdot \|_\varepsilon : \varepsilon > 0 \}$ might give $X$ the structure of a Frech\'{e}t space. Since Frech\'{e}t spaces are complete metric spaces, we can still apply Baire category arguments here. I haven't formally thought this through, so I'll add this to my to-do list later.
+
+\section{Fourier Dimension Counterexample}
+
+In \cite{Ekstrom2014}, I found a result which construct two disjoint, Borel sets $A, B \subset \TT$, with $\fordim(A), \fordim(B) < 1$, but for such that $A \cup B = \TT$. The result of Theorem 1 of \cite{Denson2019} is trivial when $\minkdim(Z) < d$, for if $\pi: (\TT^d)^n \to \TT^d$ is given by projection onto the first $d$ coordinates, then $\TT^d - \pi(Z)$ has full Hausdorf dimension and avoids $Z$. If $Z = A \times \{ 0 \}$, then $\TT - \pi(Z) = B$, which is not full dimensional, so things are more complicated when dealing with Fourier dimension. I found this result in \cite{Ekstrom2017}, which might be a useful survey to read through completely in order to get a better grasp on how the Fourier dimension behaves.
+
+\begin{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newday{10 June 2014}
+
+The (very fast) OCaml to Javascript compiler described in \citep{VouillonBalat13}\footnote{\url{http://ocsigen.org/js_of_ocaml/}} takes the unusual approach of compiling OCaml \textit{bytecode} to Javascript, rather than performing a source-to-source translation.  
+
+\hrulefill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newday{9 June 2014}
+
+Poor benchmark results. Ideas for improvement are listed in the issue tracker in the repository.
+
+%\includegraphics[scale=0.65]{benchmark}
+
+\hrulefill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newday{6 June 2014}
+
+Back from vacation.
+
+\newthought{Student project idea} improve \url{https://github.com/snim2/Terminus} by adding new BASH commands.
+
+Size of data sets for the ngram paper are shown in Table \ref{tab:ngram-sizes}.
+
+\begin{table}[p]
+\label{tab:ngram-sizes}
+\centering
+\caption{Data sizes in Google ngram data} 
+\begin{tabular}{lrr} 
+\toprule
+Data    &   Rows &  Compressed Size (GB)\\
+\midrule
+English\\
+\midrule
+1 gram &    472,764,897 &   4.8\\
+2 gram &    6,626,604,215 & 65.6\\
+3 gram &    23,260,642,968 &    218.1\\
+4 gram &    32,262,967,656 &    293.5\\
+5 gram &    24,492,478,978 &    221.5\\
+\textbf{Totals} &   87,115,458,714 &    803.5\\
+\midrule
+English One Million\\
+\midrule
+1 gram &    261,823,186 &   2.6\\
+2 gram &    3,383,379,445 & 32.1\\
+3 gram &    10,565,828,499 &    94.8\\
+4 gram &    12,987,703,773 &    113.1\\
+5 gram &    8,747,884,729 & 75.8\\
+\textbf{Totals} &   35,946,619,632 &    318.4\\
+\midrule
+American English\\
+\midrule
+1 gram &    291,639,822 &   3\\
+2 gram &    3,923,370,881 & 38.3\\
+3 gram &    12,368,376,963 &    113.9\\
+4 gram &    15,118,570,841 &    135\\
+5 gram &    10,175,161,944 &    90.2\\
+\textbf{Totals} &   41,877,120,451 &    380.4\\
+\midrule
+British English\\
+\midrule
+1 gram &    188,660,459 &   1.9\\
+2 gram &    2,000,106,933 & 19.1\\
+3 gram &    5,186,054,851 & 46.8\\
+4 gram &    5,325,077,699 & 46.6\\
+5 gram &    3,044,234,000 & 26.4\\
+\textbf{Totals} &   15,744,133,942 &    140.8\\
+\midrule
+English Fiction\\
+\midrule
+1 gram  &   191,545,012 &   2\\
+2 gram  &   2,516,249,717   &   24.3\\
+3 gram  &   7,444,565,856   &   68\\
+4 gram  &   8,913,702,898   &   79.1\\
+5 gram  &   6,282,045,487   &   55.5\\
+\textbf{Totals} & 25,348,108,970    &   228.9\\
+\midrule
+\textbf{Total without 1M}  &    170,084,822,077 &   1553.6\\
+\textbf{Total without 1M} &  &  1.53TB\\
+\textbf{Total}  & 206,031,441,709 & 1872\\
+\textbf{Total}  & & 1.848TB\\
+\end{tabular}
+\end{table}
+
+
+\hrulefill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newday{May 30 2014}
+
+Useful datasets: \url{http://rs.io/2014/05/29/list-of-data-sets.html} In particular Mozilla have released a defect tracking dataset on GitHub\footnote{\url{https://github.com/ansymo/msr2013-bug_dataset}}\citep{Lamkanfi+13}.
+
+Google NGram dataset can be found in Amazon S3\footnote{\url{http://aws.amazon.com/datasets/8172056142375670}}.
+
+\hrulefill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newday{Jan 20 2013}
+
+\textit{N.B.: The following is a sample entry from Mikhail Klassen's research diary. It is intended to be illustrative of how WriteLaTeX can be used the keep track of your research progress. Some names have been removed from this document for privacy.}
+
+\section*{Initial conditions for the turbulent molecular cloud run}
+
+\subsection*{Inner radius}
+
+The density profile follows an $r^{-3/2}$ power law. To avoid a singularity at the center, an interpolation is done over a radius. This inner radius is defined in the parameter file. It should follow the prescription of a singular isothermal sphere (see Binney \& Tremaine p.305), which is also the definition of the King radius:
+\begin{equation}
+r_0 \equiv \sqrt{\frac{9\sigma^2}{4\pi G\rho_0}}
+\end{equation}
+where $\sigma$ is the velocity dispersion and could be estimated as $\sigma = \mathcal{M} c_s$, where $c_s = \sqrt{\gamma P/\rho} = \sqrt{\gamma k_B T / \mu}$ is the sound speed.
+
+The isothermal sound speed in our simulation was estimated
+\begin{equation}
+c_s = \sqrt{\frac{k_b T}{\mu m_p}}
+\end{equation}
+I'm unsure why a factor of $\gamma$ was not included. For 30 K, this gives a sound speed of about 34000 cm/s or 0.34 km/s. At a Mach number of 5, this gives a supersonic dispersion of $\sigma$ = 1.7 km/s
+
+This gives an inner radius of $r_0 \approx$ 1.595e17. 
+
+\subsection*{Rotation}
+
+Set the same ratio of rotational to gravitational energy $\beta$ as in Peters et al. 2010a. According to Goodman et al. (1993), this is given by (see equation 6):
+\begin{equation}
+\beta = \frac{1}{4 \pi G \rho_0} \omega^2
+\end{equation}
+In practice we can probably use the central density $\rho_c$ instead of determining an average density $\rho_0$. Looking at the numbers from other simulations, we could use an $\omega$ of 1.3e-14.
+
+The link to the Goodman et al. (1993) paper:\\
+{\tt http://adsabs.harvard.edu/cgi-bin/bib\_query?1993ApJ...406..528G}
+
+We want to complete our simulation with a similar $\beta$ to check if disks form in the turbulent environment.
+
+The $\omega$ necessary to produce a $\beta = 0.05$ would be
+\begin{equation}
+\omega = \sqrt{4 \pi G \rho_0 \beta} \approx 7.15\times 10^{-13}
+\end{equation}
+using $\rho_0 = \rho_c = 1.22\times10^{-17}$.
+
+After testing this, however, I found that the rotation was much too fast. Perhaps using $\rho_0 = \rho_c$ was not a very good assumption at all, since $\rho_c$ is orders of magnitude larger than the average. I wrote a little Python script that sums up all the mass inside the outer radius and divides it by the total volume, defined by the outer radius. In this case, for an outer radius of $5.97402\times 10^{18}$ cm and about 1000 $\Msun$, we get an average density of $2.96415\times 10^{-21}$ g/cm$^3$, which gives us $\omega = 1.114 \times 10^{-14}$.
+
+%\hrulefill
+
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newpage
+\bibliographystyle{plain}
+\bibliography{LabBook}
+
+\end{document}
