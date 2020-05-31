@@ -5,15 +5,40 @@
 
 \newcommand{\userName}{Jacob Denson}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Generic Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{natbib}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header / Footer Specification
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \lhead{\textsc{\userName}}
 \chead{\textsc{Lab Notes}}
 \cfoot{~~\textit{Last modified: \today}}
 \rfoot{\textsc{\thepage}}
 
-\usepackage{natbib}
-\usepackage{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% TOC
+\newenvironment{importanttodo}%
+    {\subsection{Important To Do List}}%
+    {\vspace{2mm}\hrule\hspace{\stretch{1}}\\}
+
+\newenvironment{maybedo}%
+    {\subsection{Maybe Do}}%
+    {\vspace{2mm}\hrule\hspace{\stretch{1}}\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{lipsum,mdframed}
 \definecolor{secnum}{RGB}{13,151,225}
 \definecolor{ptcbackground}{RGB}{212,237,252}
@@ -24,8 +49,11 @@
 \pretocmd{\tableofcontents}{\begin{mdframed}[backgroundcolor=ptcbackground,outermargin=\dimexpr-\marginparwidth-\marginparsep\relax,innermargin=0pt,hidealllines=true]\let\cleardoublepage\relax}{}{}
 \apptocmd{\tableofcontents}{\end{mdframed}}{}{}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % COLORS (Tango) Mostly by Philip Bunge
 % http://pbunge.crimson.ch/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \definecolor{White}{gray}{0.9}
 \definecolor{Black}{gray}{0.0}
 \definecolor{LightButter}{rgb}{0.98,0.91,0.31}
@@ -56,6 +84,10 @@
 \definecolor{Aluminium5}{rgb}{0.33,0.34,0.32}
 \definecolor{Aluminium6}{rgb}{0.18,0.20,0.21}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperrefs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage{hyperref}
 \hypersetup{
     pdffitwindow=false,            % window fit to page
@@ -71,17 +103,9 @@
     urlcolor=DarkSkyBlue           % colour of external links
 }
 
-\newenvironment{importanttodo}%
-    {\subsection{Important To Do List}}%
-    {\vspace{2mm}\hrule\hspace{\stretch{1}}\\}
-
-\newenvironment{maybedo}%
-    {\subsection{Maybe Do}}%
-    {\vspace{2mm}\hrule\hspace{\stretch{1}}\\}
-
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom Commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \DeclareMathOperator{\TT}{\mathbf{T}}
 \DeclareMathOperator{\ZZ}{\mathbf{Z}}
