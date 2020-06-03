@@ -1,7 +1,7 @@
 %%% Laboratory   Notes
 %%% Template by Mikhail Klassen, April 2013
 %%% Contributions from Sarah Mount, May 2014
-\documentclass[nobib,nols,a4paper,twoside,symmetric,justified,notoc]{tufte-book}
+\documentclass[openany,nobib,nols,a4paper,twoside,symmetric,justified,notoc]{tufte-book}
 
 \newcommand{\userName}{Jacob Denson}
 
@@ -12,8 +12,33 @@
 \usepackage{natbib}
 \usepackage{comment}
 \usepackage{amsmath}
-\usepackage{amsthm}
 \usepackage{amssymb}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorem Specification
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{axiom}{Axiom}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{exercise}{Exercise}[chapter]
+\newtheorem{fact}{Fact}[chapter]
+
+\newtheorem*{example}{Example}
+\newtheorem*{proof*}{Proof}
+
+\theoremstyle{remark}
+\newtheorem*{exposition}{Exposition}
+\newtheorem*{remark}{Remark}
+\newtheorem*{remarks}{Remarks}
+
+\theoremstyle{definition}
+\newtheorem*{defi}{Definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Header / Footer Specification
@@ -41,7 +66,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{lipsum,mdframed}
 \definecolor{secnum}{RGB}{13,151,225}
-\definecolor{ptcbackground}{RGB}{212,237,252}
+\definecolor{ptcbackground}{RGB}{255,255,255}
 \definecolor{ptctitle}{RGB}{0,177,235}
 \usepackage{titletoc}
 \usepackage{etoolbox}
@@ -114,6 +139,10 @@
 
 \DeclareMathOperator{\fordim}{\text{dim}_{\mathbf{F}}}
 \DeclareMathOperator{\minkdim}{\text{dim}_{\mathbf{M}}}
+\DeclareMathOperator{\hausdim}{\text{dim}_{\mathbf{H}}}
+\DeclareMathOperator{\modfordim}{\text{dim}_{\mathbf{MF}}}
+\DeclareMathOperator{\lowlocdim}{\underline{\text{dim}_{\mathbf{H}}}}
+\DeclareMathOperator{\uplocdim}{\overline{\text{dim}_{\mathbf{H}}}}
 
 \title{Laboratory Journal}
 \author{Jacob Denson}
@@ -124,19 +153,28 @@
 \tableofcontents
 \newpage
 
-\chapter{Saturday, 30 May 2020}
+
+
+
+
+
+
+
+
+
+\chapter{Saturday, 30 May 2020} \label{30052020}
 
 \begin{importanttodo}
 \begin{itemize}
-    \item Formally prove the space $X$ given by the norms in \eqref{OurFrechetSpace} is complete.
+    \item Formally prove the space $X$ given by the norms in \eqref{OurFrechetSpace} is complete. \textbf{See \nameref{01062020}}
 
-    \item Try and understand the probabistic smoothness calculations given in Lemma 7.4 of \cite{Korner2009}. Once this is done, we can try adapting it to our more general situation.
+    \item Try and understand the probabalistic smoothness calculations given in Lemma 7.4 of \cite{Korner2009}. Once this is done, we can try adapting it to our more general situation.
 \end{itemize}
 \end{importanttodo}
 
 \begin{maybedo}
 \begin{itemize}
-    \item Today I found an interesting survey on the Fourier Dimension \cite{Ekstrom2017}. If I find the time I should read through it more thoroughly to get some intuition.
+    \item Today I found an interesting survey on the Fourier Dimension \cite{Ekstrom2017}. If I find the time I should read through it more thoroughly to get some intuition. \textbf{See \nameref{31052020}}
 
     \item I also found a survey on the application of the probabilistic method and the Baire category theorem in Harmonic analysis \cite{Kahane2000}. I feel this method is very exploitable in the types of problems I currently deal with, so if only for culture, this should be a useful read.
 \end{itemize}
@@ -172,7 +210,7 @@ is finite. Then any measure in $X$ satisfies \eqref{Korner2009Bound} up to a mul
     |\widehat{\mu}(\xi)| \lesssim_\varepsilon |\xi|^{\varepsilon-\beta/2}.
 \end{equation}
 %
-Such a measure does not satisfy quite as rigid an inequality as \eqref{Korner2009Bound}, instead having to satisfy infinitely many inequalities, and as such I do not believe we can find a Banach space norm which encapsulates \eqref{OurFourierDimensionBound}.
+Such a measure does not satisfy quite as rigid an inequality as \eqref{Korner2009Bound}, instead having to satisfy infinitely many inequalities of the form \eqref{OurFourierDimensionBound}, and as such I do not believe we can find a Banach space norm which encapsulates \eqref{OurFourierDimensionBound}.
 
 However, today I thought of an idea which might prove fruitful. For any measure $\mu$ satisfying $\eqref{OurFourierDimensionBound}$ for each $\varepsilon > 0$, the quantities
 %
@@ -180,11 +218,142 @@ However, today I thought of an idea which might prove fruitful. For any measure 
     \| \mu \|_\varepsilon = \sup_{\xi \in \ZZ} |\widehat{\mu}(\xi)| |\xi|^{\beta/2-\varepsilon}
 \end{equation}
 %
-will be finite for all $\varepsilon > 0$. If we let $X$ denote the family of all finite measures which satisfy \eqref{OurFrechetSpace} for all $\varepsilon > 0$, then the collection of seminorms $\{ \| \cdot \|_\varepsilon : \varepsilon > 0 \}$ might give $X$ the structure of a Frech\'{e}t space. Since Frech\'{e}t spaces are complete metric spaces, we can still apply Baire category arguments here. I haven't formally thought this through, so I'll add this to my to-do list later.
+will be finite for all $\varepsilon > 0$. If we let $X$ denote the family of all finite measures which satisfy \eqref{OurFrechetSpace} for all $\varepsilon > 0$, then the collection of seminorms $\{ \| \cdot \|_\varepsilon : \varepsilon > 0 \}$ might give $X$ the structure of a Frech\'{e}t space. Since Frech\'{e}t spaces are complete metric spaces, we can still apply Baire category arguments here. It remains to check whether this really gives a complete metric space structure, however.
 
-\section{Fourier Dimension Counterexample}
+\section{Finite Additivity of the Fourier Dimension}
 
-In \cite{Ekstrom2014}, I found a result which construct two disjoint, Borel sets $A, B \subset \TT$, with $\fordim(A), \fordim(B) < 1$, but for such that $A \cup B = \TT$. The result of Theorem 1 of \cite{Denson2019} is trivial when $\minkdim(Z) < d$, for if $\pi: (\TT^d)^n \to \TT^d$ is given by projection onto the first $d$ coordinates, then $\TT^d - \pi(Z)$ has full Hausdorf dimension and avoids $Z$. If $Z = A \times \{ 0 \}$, then $\TT - \pi(Z) = B$, which is not full dimensional, so things are more complicated when dealing with Fourier dimension. I found this result in \cite{Ekstrom2017}, which might be a useful survey to read through completely in order to get a better grasp on how the Fourier dimension behaves.
+In \cite{Ekstrom2014}, I found a result which constructs two disjoint, Borel sets $A, B \subset \TT$, with $\fordim(A), \fordim(B) < 1$, but such that $A \cup B = \TT$. The result of Theorem 1 of \cite{Denson2019} is trivial when $\minkdim(Z) < d$, for if $\pi: (\TT^d)^n \to \TT^d$ is given by projection onto the first $d$ coordinates, then $\TT^d - \pi(Z)$ has full Hausdorf dimension and avoids $Z$. If $Z = A \times \{ 0 \}$, then $\TT - \pi(Z) = B$, which is not full dimensional, so things are more complicated when dealing with Fourier dimension. I found this result in \cite{Ekstrom2017}, which might be a useful survey to read through completely in order to get a better grasp on how the Fourier dimension behaves.
+
+
+
+
+
+
+
+
+
+
+\chapter{Sunday, 31st May 2020} \label{31052020}
+
+\begin{maybedo}
+\begin{itemize}
+    \item Read Kahane's book \cite{Kahane1994} to obtain ideas on possible Fourier dimension constructions.
+
+    \item Read Lyon's article \cite{Lyons1995} to obtain cultural background information about Fourier dimension in harmonic analysis.
+\end{itemize}
+\end{maybedo}
+
+Today I finished off my slides, prepared for the talk, and review Ekstr\"{o}m and Schmeling's survey on Fourier dimension results \cite{Ekstrom2017}. The review is given below.
+
+\section{Ekstr\"{o}m and Schmeling's ``A Survey of Fourier Dimension''}
+
+This article gives a pretty diverse set of viewpoints about the Fourier dimension. I'll list off a couple of things that I hadn't heard about before:
+%
+\begin{itemize}
+    \item It is obvious that if $\mu$ is a finite Borel measure with Hausdorff dimension $s$ and $\mu(E) > 0$, then $\hausdim(E) \geq s$. Thus $\mu$ does not need to be supported on $E$ completely. However, if we define the \emph{modified Fourier dimension}
+    %
+    \begin{equation} \label{ModifiedFourierDimension}
+        \modfordim(E) = \sup \{ \fordim(\mu) : \mu(E) > 0 \},
+    \end{equation}
+    %
+    we get a different dimension to the Fourier dimension
+    %
+    \begin{equation} \label{UsualFourierDimension}
+        \fordim(E) = \sup \{ \fordim(\mu) : \text{supp}(\mu) \subset E \}.
+    \end{equation}
+    %
+    The modified Fourier dimension \emph{is} countably stable, i.e. for a countable collection of Borel sets $\{ E_k \}$,
+    %
+    \[ \modfordim \left( \bigcup_k E_k \right) = \sup_k \left( \fordim(E_k) \right) \]
+    %
+    The usual Fourier dimension is not even finitely stable, but is countably stable if we restrict ourselves to $F_\delta$ sets.
+
+    \item It is interesting that we can define the Hausdorff dimension completely locally. Given a finite Borel measure $\mu$ on $\RR^d$, and $x \in \RR^d$, define the \emph{local dimension} as
+    %
+    \[ \lowlocdim(\mu,x) = \liminf_{r \to 0} \log_r \mu(B_x(r)). \]
+    %
+    and
+    %
+    \[ \uplocdim(\mu,x) = \limsup_{r \to 0} \log_r \mu(B_x(r)). \]
+    %
+    \begin{theorem}
+        If $\mu(E) > 0$ and $\lowlocdim(\mu,x) \geq s$ for $\mu$ a.e. $x \in E$, then $\hausdim(E) \geq s$.
+    \end{theorem}
+    \begin{proof}
+        For each $\varepsilon > 0$, there exists $r_0 > 0$ and $F \subset E$ with $\mu(F) > 0$ such that for each $x \in F$ and $r \leq r_0$, $\mu(B_x(r)) \geq r^{s - \varepsilon}$. This implies $\hausdim(E) \geq \hausdim(F) \geq s - \varepsilon$. We then take $\varepsilon \to 0$ to conclude $\hausdim(E) \geq s$.
+    \end{proof}
+    % 
+    Working locally might simplify calculations, rather than having to come up with uniform bounds on the dimension. There is no local dimension for the usual Fourier transform, since the Fourier transform is not monotone on sets. However, the modified Fourier dimension \emph{is} monotone, so it might be possible to find a local charactierization of the Fourier dimension. For a measure $\mu$, we define
+    %
+    \[ \modfordim(\mu) = \sup \{ \fordim(\eta): \mu \ll \eta \}, \]
+    %
+    so that $\modfordim(E) = \sup \{ \modfordim(\mu): \text{supp}(\mu) \subset E \}$. Then we can try and define the Fourier dimension locally.
+
+    \item Given a family of measures $M$ on a measure space $X$, it is interesting to find a family $\mathcal{U}$ of measurable subsets of $X$ such that a measure $\mu$ on $X$ is an element of $M$ if and only if $\mu(E) = 0$ for all $E \in \mathcal{U}$. For instance, this is possible if a measure $\mu$ is fixed, and $M$ is the family of all absolutely continuous measures with respect to $\mu$. This is also possible for measures with Hausdorff dimension exceeding some value $s$ - it suffices to consider the family of all sets with $s$ Hausdorff measure zero. The family of \emph{Rajchman measures} on $\RR$ are the collection of all measures $\mu$ such that
+    %
+    \[ \lim_{|\xi| \to \infty} \widehat{\mu}(\xi) = 0. \]
+    %
+    Suprisingly, one can find a family of sets $\mathcal{U}$ such that a measure $\mu$ is Rajchman if and only if it assigns mass zero to each set $E \in \mathcal{U}$. This is detailed in \cite{Lyons1995}, which might also be a useful text to read for culture. If we let
+    %
+    \[ M^\perp = \{ E \subset X: \mu(E) = 0\ \text{for all $\mu \in M(X)$} \} \]
+    %
+    and
+    %
+    \[ M^{\perp \perp} = \{ \mu : \mu(E) = 0\ \text{for all $E \in M^\perp$} \}. \]
+    %
+    To show such a family exists for a given collection of measures $M$, it is necessary and sufficient to show $M^{\perp \perp} = M$. This is true for the family of measures with \emph{modified Fourier dimension} greater than a given value, but not for the family of measures whose normal Fourier dimension is greater than a given value. It is an open question to explicitly identify the family of sets in these examples, however, which might be an interesting problem to work on.
+
+    \item If $E$ is a Borel subset of $\RR$, then there exists a $C^{m + \alpha}$ diffeomorphism $f: \RR \to \RR$ such that
+    %
+    \[ \fordim(f(E)) \geq \frac{\hausdim(E)}{m + \alpha}, \]
+    %
+    In particular, if $m = 1$ and $\alpha = 0$, any Borel set is diffeomorphic to a Salem set. One can thus view the difference between Hausdorff and Fourier dimension as a measure of pertubation, in some sense. I should check whether it is possible to find a smooth faimly of deformations of $E$ than smoothly deform the Fourier dimension up to the Hausdorff dimension. It is also an open question to construct an \emph{explicit} diffeomorphism $f: \RR \to \RR$ between the Cantor set and a Salem set, since the construction above is obtained in a random fashion.
+\end{itemize}
+
+Looking at the references shows a list of books that might be useful to consult for intuition on the problems I'm working on now:
+%
+\begin{itemize}
+    \item J.P. Kahane's book \cite{Kahane1994} on random functions might be useful to obtain ideas on how to obtain Fourier dimension measures.
+
+    \item R. Lyons article \cite{Lyons1995} might be useful for learning some cultural information about the history of Fourier dimension in harmonic analysis.
+\end{itemize}
+
+
+
+
+
+\chapter{Monday 1st June 2020} \label{01062020}
+
+\begin{importanttodo}
+\begin{itemize}
+    \item Edit the proof in our existing draft on Fourier dimension to work completely rigorously for the new Frech\'{e}t space. \textbf{See \nameref{02062020}}
+\end{itemize}
+\end{importanttodo}
+
+I gave my presentation at the Ottawa Math Conference today. It went fairly well, I got a few questions so some people followed the talk. Later on in the day I wrote a formal proof that the space I thought up in \nameref{30052020} is actually a Frech\'{e}t space. What remains is to modify the existing proof in the paper draft to completely rigorously prove that generic sets in the space are Salem and avoid patterns.
+
+
+
+
+
+
+
+\chapter{Tuesday 2nd June 2020} \label{01062020}
+
+Today was mostly a writing day. I finished editing the proof in our paper to incorporate the new Frech\'{e}t space idea, so now we can find sets with Fourier dimension
+%
+\[ \frac{nd - \alpha}{n - 1/2} \]
+%
+avoiding patterns. All that remains to complete this project is to understand K\"{o}rner's probabilistic analysis which enabled him to improve this bound in the special case of integer coefficient equations, see if we can generalize this to more general cases to yield a bound
+%
+\[ \frac{nd - \alpha}{n - 1}, \]
+%
+and then incorporate this into the paper.
+
+
+
+
+
 
 \begin{comment}
 

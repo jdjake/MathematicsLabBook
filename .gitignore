@@ -1,0 +1,14 @@
+
+*.aux
+*.blg
+*.fdb_latexmk
+*.idx
+*.fls
+*.ilg
+*.ind
+*.log
+*.out
+*.sty
+*.gz
+*.toc
+.DS_Store
