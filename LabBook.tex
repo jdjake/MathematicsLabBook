@@ -367,6 +367,8 @@ and then incorporate this into the paper.
         \item Look back on decoupling argument and see if we can still utilize it to help obtain the probability bounds needed in our construction.
 
         \item Try and solve the tensorized special case of the argument.
+
+        \item Prove that if we can prove the analogous problem in the discrete setting, then we automatically obtain the result in the general setting.
     \end{itemize}
 \end{importanttodo}
 
@@ -374,13 +376,17 @@ Today I cleaned up the proof in the Fourier dimension paper. Aside from expandin
 
 \section{Obtaining Square Root Cancellation}
 
-The only obstacle to obtaining the full result we desire in the Fourier dimension is understanding a fairly simple situation in probability; Consider a large integer $K$ and a set $W \subset \TT^{dn}$ with $|W| \leq K^{1-n}$. Then take $K$ independant and uniformly distributed random variables $X_1, \dots, X_K$ in $\TT^d$. Let $S$ be the set of indices $k_1 \in \{ 1, \dots, K \}$ such that there exists distinct indices $k_2, \dots, k_n \in \{ 1, \dots, K \}$ such that $(X_{k_1}, \dots, X_{k_n}) \in W$. Standard techniques involving expectation bounds imply that $\#(S) \leq K$ with high probability. For $\xi \in \ZZ^d$, we want to understand what conditions guarantee that with high probability square root cancellation occurs in the sum
+The only obstacle to obtaining the full result we desire in the Fourier dimension is understanding a fairly simple situation in probability; Consider a large integer $K$, let $W \subset \TT^{dn}$ be a set, let $\varepsilon = K^{(1 - n)/(dn - \alpha)}$, and suppose that $|W_\varepsilon| \leq K^{1-n}$, where
 %
-\[ \frac{1}{K} \sum_{k \in S} e^{2 \pi i \xi \cdot X_k}, \]
+\[ W_\varepsilon = \bigcup_{x \in W} B_\varepsilon(x). \]
+% 
+Then take $K$ independant and uniformly distributed random variables $X_1, \dots, X_K$ in $\TT^d$. Let $S$ be the set of indices $k_1 \in \{ 1, \dots, K \}$ such that there exists distinct indices $k_2, \dots, k_n \in \{ 1, \dots, K \}$ such that $(X_{k_1}, \dots, X_{k_n}) \in W_\varepsilon$. Standard expectation bounds imply that $\#(S) \leq K$ with high probability. For $\xi \in \ZZ^d$, we want to understand what conditions guarantee that with high probability square root cancellation occurs in the sum
+%
+\[ \sum_{k \in S} e^{2 \pi i \xi \cdot X_k}, \]
 %
 i.e. under what conditions can we conclude that,
 %
-\[ \left| \frac{1}{K} \sum_{k \in S} e^{2 \pi i \xi \cdot X_k} \right| \lesssim K^{-1/2} \log(K)^{O(1)}. \]
+\[ \left| \sum_{k \in S} e^{2 \pi i \xi \cdot X_k} \right| \leq K^{1/2} \log(K)^{O(1)}. \]
 %
 If we write
 %
@@ -398,6 +404,51 @@ However, I am unable to find a general concentration result which can give us th
 \[ W = W_1 \times \dots \times W_n. \]
 %
 Is the problem at least solvable in this simple, tensorizable situation? I might also want to look back on the probabilistic decoupling techniques I was trying to utilize last year.
+
+It might be useful to discretize. As a $\varepsilon$ thickening, the set $W_\varepsilon$ is covered by
+%
+\[ K^{\alpha (n-1) / (dn - \alpha)} \]
+%
+sidelength $\varepsilon$ boxes, which may be assume to be disjoint, i.e. with endpoints lying in the grid $\varepsilon \cdot \ZZ^{dn}$. Then we can discretize, thinking of our random variables $\{ X_k \}$ as taking values uniformly at random from the centre of boxes in the grid $\varepsilon \cdot \ZZ^{dn}$, except that when we undiscretize, all our quantities are going to be modified multiplicatively by a unitary complex number lying between $e^{- 2 \pi i (dn)^{1/2} |\xi|}$ and $e^{2  \pi i (dn)^{1/2} |\xi|}$. It might be useful to prove that such a discretization is a useful reduction, since so many results in probabilistic combinatorics work in the discrete setting.
+
+
+
+
+
+
+
+
+
+\chapter{Thursday 4th June 2020} \label{04062020}
+
+\section{Discrete Reduction}
+
+Suppose we have a series of vectors $x_1, \dots, x_K \in \TT^d$ and $\xi \in \ZZ^d$ such that if
+%
+\[ S_0 = e^{2 \pi i \xi \cdot x_1} + \dots + e^{2 \pi i \xi \cdot x_K} \]
+%
+then
+%
+\[ |S_0| \leq K^{1/2} \log(K)^{O(1)} \]
+%
+Let $a_1, \dots, a_K$ be modulus one complex numbers such that for each $k \in \{ 1, \dots, K \}$,
+%
+\[ |a_k - 1| \leq |\xi|. \]
+%
+We now wish to study whether we can obtain a bound on the sum
+%
+\[ S_1 = a_1 e^{2 \pi i \xi \cdot x_1} + \dots + a_K e^{2 \pi i \xi \cdot x_K}. \]
+%
+An application of H\"{o}lder's inequality shows that
+%
+\[ |S_1 - S_0| \leq |\xi| K^{1/2} \log(K)^{O(1)}, \]
+%
+which shows the reduction is trivially satisfactory when $|\xi| \leq \log(K)^{O(1)}$. If we apply Cauchy Schwartz, then we find
+%
+\[ |S_1 - S_0| \leq K^{1/2} \left( \sum (a_k - 1)^2 \right)^{1/2}, \]
+%
+so provided 
+
 
 
 
