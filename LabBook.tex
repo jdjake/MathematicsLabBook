@@ -450,15 +450,14 @@ In particular, applying a union bound to this inequality shows that with high pr
 %
 But this conditional expectation is equal to
 %
-\[ K \cdot \PP \left( k \in S | \Sigma \right) \cdot \EE \left( e^{2 \pi i \xi \cdot X} | \Sigma \right), \]
+\[ K \cdot \EE \left( e^{2 \pi i \xi \cdot X} | \Sigma \right), \]
 %
-so we have to show that, combined, these two quantities in the product combine to a small value. Let $E_i = \{ X_{i1}, \dots, X_{iK} \}$ for $i \in \{ 1, \dots, K \}$, set $F = (\TT^d \times E_2 \times \dots \times E_n) \cap W_\varepsilon$. Then
-%
-\[ \PP \left( k \in S | \Sigma \right) = |\pi(F)|, \]
-%
-where $\pi: \TT^{dn} \to \TT^d$ is projection onto the first $d$ coordinates. On the other hand,
+where $X$ has the same distribution as $\{ X_1, \dots, X_K \}$. If, for each $i \in \{ 1, \dots, K \}$, we let $E_i = \{ X_{i1}, \dots, X_{iK} \}$ for $i \in \{ 1, \dots, K \}$, set $F = (\TT^d \times E_2 \times \dots \times E_n) \cap W_\varepsilon$. Then
 %
 \[ \EE \left( e^{2 \pi i \xi \cdot X} | \Sigma \right) = \int_{\pi(F)} e^{-2 \pi i \xi \cdot x}. \]
+%
+where $\pi: \TT^{dn} \to \TT^d$ is projection onto the first $d$ coordinates.
+
 
 
 
