@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Ekstrom2017}
 J\"{o}rg~Schmeling Fredrik~Ekstr\"{o}m.
@@ -35,5 +35,25 @@ Thomas~W. K\"{o}rner.
 R.~Lyons.
 \newblock Seventy years of {Rajchman} measures.
 \newblock 1995.
+
+\bibitem{Evans1992}
+Lawrence C.~Evans Ronald F.~Gariepy.
+\newblock {\em Measure Theory and Fine Properties of Functions}.
+\newblock 1992.
+
+\bibitem{Krantz2002}
+Harold R.~Parks Steven G.~Krantz.
+\newblock {\em A Primer on Real Analytic Functions}.
+\newblock 2002.
+
+\bibitem{Krantz2007}
+Lina~Lee Steven G.~Krantz.
+\newblock {\em Explorations in Harmonic Analysis}.
+\newblock 2007.
+
+\bibitem{Ziemer1989}
+William~P. Ziemer.
+\newblock {\em Weakly Differentiable Functions}.
+\newblock 1989.
 
 \end{thebibliography}
