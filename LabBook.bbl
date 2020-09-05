@@ -1,5 +1,15 @@
 \begin{thebibliography}{10}
 
+\bibitem{Beltran2017}
+Laura~Cladek David~Beltran.
+\newblock Sparse bounds for psuedodifferential operators.
+\newblock 2017.
+
+\bibitem{Bernicot2016}
+Stefanie~Petermichl Fr\'{e}d\'{e}ric~Bernicot, Dorothee~Frey.
+\newblock Sharp weighted norm estimates beyond {C}alde\'{r}on-{Z}ygmund theory.
+\newblock 2016.
+
 \bibitem{Ekstrom2017}
 J\"{o}rg~Schmeling Fredrik~Ekstr\"{o}m.
 \newblock A survey on the fourier dimension.
@@ -36,10 +46,25 @@ R.~Lyons.
 \newblock Seventy years of {Rajchman} measures.
 \newblock 1995.
 
+\bibitem{Lacey2017}
+Maria Carmen~Reguera Michael T.~Lacey, Dar\'{i}o~Mena.
+\newblock Sparse bounds for bochner-riesz means.
+\newblock 2017.
+
+\bibitem{Lacey2016}
+Scott~Spencer Michael T.~Lacey.
+\newblock Sparse bounds for oscillatory and random singular integrals.
+\newblock 2016.
+
 \bibitem{Evans1992}
 Lawrence C.~Evans Ronald F.~Gariepy.
 \newblock {\em Measure Theory and Fine Properties of Functions}.
 \newblock 1992.
+
+\bibitem{Steinerberger2020}
+Stefan Steinerberger.
+\newblock {F}ourier uncertainty principles, scale space theory and the
+  smoothest average.
 
 \bibitem{Krantz2002}
 Harold R.~Parks Steven G.~Krantz.

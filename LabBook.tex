@@ -13,6 +13,7 @@
 \usepackage{comment}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{esint}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Theorem Specification
@@ -170,7 +171,7 @@
 \begin{itemize}
     \item Formally prove the space $X$ given by the norms in \eqref{OurFrechetSpace} is complete. \textbf{See \nameref{01062020}}
 
-    \item Try and understand the probabalistic smoothness calculations given in Lemma 7.4 of \cite{Korner2009}. Once this is done, we can try adapting it to our more general situation.
+    \item Try and understand the probabalistic smoothness calculations given in Lemma 7.4 of \cite{Korner2009}. Once this is done, we can try adapting it to our more general situation. \textbf{See \nameref{04092020}}
 \end{itemize}
 \end{importanttodo}
 
@@ -482,33 +483,6 @@ This set seems quite tractable to study, and we should try and obtain the result
 
 
 
-\chapter{Monday 8th June 2020}
-
-Today I started studying seriously for the Madison graduate exam. I'll by taking the algebraic topology and analysis exams, but I'm beginning by studying my weakest subject, algebraic topology. In particular, I'm trying to finish studying some differential topology, which should hopefully give me some more geometric insight, before I move onto the more abstract algebraic topology. Here are the major invariants I've studied:
-%
-\begin{itemize}
-    \item If $M$ and $N$ are compact manifolds, $E$ is another manifold, $f: M \to E$ and $g: N \to E$ are smooth maps, and $\dim(M) + \dim(N) = \dim(E)$, we can define a homotopy invariant $I_2(f,g)$, the \emph{intersection number modulo two}. If $f$ is transversal to $g$, this is just the parity of the number of pairs $(x,y) \in M \times N$, such that $f(x) = g(y)$.
-
-    \item If $M$, $N$, and $E$ are all \emph{oriented manifolds}, we can define the \emph{oriented intersection number} $I(f,g)$, for transverse maps $f$ and $g$, to be the sum of the orientation numbers of the pairs $(x,y) \in M \times N$ such that $f(x) = g(y)$. If $M$ and $N$ are both complementary submanifolds of $E$, and $f$ and $g$ are the inclusion map, then the orientation number of a point $x \in M \cap N$ as follows; $T_x E$ can be identified with $T_x M \oplus T_x N$. The orientation of $x$ is equal to $+1$ if the orientation of $T_x M \oplus T_x N$ agrees with the orientation of $T_x E$, and $-1$ if the orientation of $T_x M \oplus T_x N$ is the reverse of the orientation of $T_x E$. This number is also a homotopy invariant of $f$ and $g$.
-
-    \item If $f: M \to N$ is a map between two compact manifolds of the same dimension, where $N$ is connected, the \emph{degree modulo two} of $f$, denoted $\text{deg}_2(f)$, to be the quantity $I_2(f,y)$, where $y \in N$ is an arbitrary point. Thus if $y$ is a regular point of the map $y$, then $I_2(f,y)$ counts the number of points in $f^{-1}(y)$, modulo two. If $M$ and $N$ are oriented manifolds, we can define the degree to be the quantity $I_2(f,y)$. If $M$ and $N$ are oriented, we can also consider the \emph{degree} of $f$, denoted $\text{deg}(f)$, in the same manner. The \emph{Hopf degree theorem} says that the degree of a map $f: S^n \to S^n$ uniquely determines the homotopy class of $f$.
-
-    \item Fix $y \in \RR^{n+1}$, and consider a smooth map $f: M \to \RR^{n+1} - \{ y \}$, where $M$ is a compact manifold with $\dim(M) = n$. Then we can define the \emph{winding number modulo two} of $f$ around $y$, denoted $W_2(f,y)$ to be the modulo two degree of the map $\tilde{f}: M \to S^n$ given by
-    %
-    \[ \tilde{f}(x) = \frac{f(x) - y}{|f(x) - y|}. \]
-    %
-    If $W_2(f,y)$ is odd, then for any smooth map $F: W \to \RR^{n+1}$ extending $f$ to some manifold with boundary $W$ with $\partial W = M$, there exists a point $x \in B$ such that $F(x) = y$. We can also consider the winding number of a compact oriented manifold $M$ of dimension $n$ by considering the degree of $\tilde{f}$. More precisely, if $F: W \to \RR^{n+1}$ is an extension of $f$ to a manifold with boundary $W$ with $\partial W = M$, and $y \in \RR^{n+1} - f(M)$ is a regular value of $F$, then $W(f,y)$ gives the number of points in $F^{-1}(y)$. The winding number of $f: M \to \RR^{n+1} - \{ y \}$ is a homotopy invariant.
-\end{itemize}
-
-Tomorrow I want to look over the discussion of Lefschetz invariant theory for fixed points of maps, the Hopf degree of vector fields, and then move on to some De Rham Cohomology if I have time.
-
-
-
-
-
-
-
-
 \chapter{Thursday 20th August 2020} \label{04062020}
 
 \begin{maybedo}
@@ -542,6 +516,104 @@ It's been two months since my last research entry, given that I have spent the l
         \item A book \cite{Evans1992} by Lawrence Evans and Ronald Gariepy on the relation between Sobolev spaces and Hausdorff dimension.
     \end{itemize}
 \end{itemize}
+
+
+
+
+
+
+\chapter{Friday, 4th September 2020} \label{04092020}
+
+\begin{importanttodo}
+\begin{itemize}
+    \item Look into uncertainty principles on Orlicz spaces in order to extend the smoothing bound as required.
+\end{itemize}
+\end{importanttodo}
+
+In the past few days I've officially started my program at Madison. I also attended some interest talks:
+%
+\begin{itemize}
+    \item David Beltran gave an interesting lecture series on sparse domination. Consider an operator $T$ whose input and output consists of scalar functions on a set $X$. The basic theory studies \emph{pointwise sparse domination}, i.e. finding a family of subsets $\mathcal{S}$ of $X$ and an exponent $p$ such that for each $x \in X$,
+    %
+    \[ |Tf(x)| \lesssim \sum_{Q \in \mathcal{S}} \langle f \rangle_{Q,p} \cdot \mathbf{I}_Q(x) \]
+    %
+    where
+    %
+    \[ \langle f \rangle_{Q,p} = \left( \fint_Q |f|^p \right)^{1/p} \]
+    %
+    and such that there exists a disjoint family of sets $\{ E_Q : Q \in \mathcal{S} \}$ such that $|E_Q| \geq \eta |Q|$ (such a family $\mathcal{S}$ is then called \emph{$\eta$-sparse}). It then follows that we have a bound $\| Tf \|_{L^r(X)} \lesssim_r \| f \|_{L^r(X)}$. for any $r > p$.
+
+    \emph{Bilinear} sparse domination attempts to extend the family of operators we can sparsely dominate. Suppose that there exists $\eta \in (0,1]$ such that for any functions $f_1$ and $f_2$,
+    %
+    \[ \langle Tf_1, f_2 \rangle \lesssim \sup_{\eta-\text{sparse}\ \mathcal{S}} \sum_{Q \in \mathcal{S}} |Q| \cdot \langle f_1 \rangle_{Q,p} \langle f_2 \rangle_{Q,q^*}. \]
+    %
+    Given this assumption, we have bounds
+    %
+    \[ \| Tf \|_{L^r(X)} \lesssim_r \| f \|_{L^r(X)} \]
+    %
+    for any $r \in (p,q)$,
+    %
+    \[ \| Tf \|_{L^{p,\infty}(X)} \lesssim \| f \|_{L^p(X)} \]
+    %
+    and
+    %
+    \[ \| Tf \|_{L^q(X)} \lesssim \| f \|_{L^{q,1}(X)}. \]
+    %
+    This is proved in \cite{Bernicot2016}.
+
+    Sparse domination is easiest when working with operators at a single scale. Examples include a ball average operator on $\RR^d$, i.e.
+    %
+    \[ A_rf(x) = \fint_{B_r(x)} f(x)\; dx. \]
+    %
+    Then if $\text{supp}(f) \subset Q$, where $l(Q) = r$, $\text{supp}(A_r f) \subset 3Q$. Thus we think of $A_r$ as being `at scale $r$'. We have bounds
+    %
+    \[ \| A_r f \|_{L^p(\RR^d)} \leq \| f \|_{L^p(\RR^d)} \quad\text{and}\quad \| A_r f \|_{L^\infty(\RR^d)} \lesssim_d r^{-d} \| f \|_{L^1(\RR^d)}. \]
+    %
+    Then for any $f_1$, $f_2$, applying H\"{o}lder's inequality shows
+    %
+    \begin{align*}
+        \langle A_r(f_1 \mathbf{I}_Q), f_2 \rangle &= \langle A_r(f_1 \mathbf{I}_Q), f_2 \mathbf{I}_{3Q} \rangle\\
+        &\leq \| A_r(f_1 \mathbf{I}_Q) \|_{L^q(\RR^d)} \| f_2 \mathbf{I}_{3Q} \|_{L^{q^*}(\RR^d)}\\
+        &\lesssim_d r^{d(1/q - 1/p)} \| f_1 \mathbf{I}_Q \|_{L^p(\RR^d)} \| f_2 \mathbf{I}_{3Q} \|_{L^{q^*}(\RR^d)}\\
+        &= |Q| \langle f_1 \rangle_{Q,p} \langle f_2 \rangle_{Q,q^*}.
+    \end{align*}
+    %
+    We can cover $\RR^d$ by tiles of the form $3Q$ which gives the sparse domination required. The advantage of this argument is that it involves very little of the structure of the operator $A_r$, only that $\text{supp}(A_r f)$ is contained in an $r$-thickening of $\text{supp}(f)$, and that $\| A_r f \|_{L^q(\RR^d)} \lesssim r^{d(1/q - 1/p)} \| f \|_{L^p(\RR^d)}$. This technique was first found in \cite{Lacey2016}.
+
+    Dyadic decompositions also work for multiscale operators, if the operator can be decomposed into single scale operators dyadically and an exponential decay is involved. This method has been used to bound various psuedodifferential operators as in \cite{Beltran2017}, and Bochner-Riesz multipliers as in \cite{Lacey2017}.
+
+    In very recent work, David Beltran has managed to obtain bilinear sparse domination bounds that apply to multiscale operators. But I wasn't able to follow this section this clearly.
+
+    \item Stefan Steinerberger gave a talk based on \cite{Steinerberger2020} on the relation between uncertainty principles and the `smoothest average' operator. Given a fixed $\alpha > 0$ and $\lambda > 0$, we consider the set of all non-negative functions $u: \RR^d \to \RR$ such that
+    %
+    \[ \int_{\RR^d} u(x)\; dx = 1 \quad\text{and}\quad \int_{\RR^d} |x|^\alpha \cdot u(x)\; dx = \lambda. \]
+    %
+    Out of these $u$, we try and and find such a $u$ which minimizes the value
+    %
+    \[ \sup_{f \in H^2(\RR^d)} \frac{\| \nabla(f * u) \|_{L^2(\RR^d)}}{\| f \|_{L^2(\RR^d)}}. \]
+    %
+    Applying Plancherel, and the fact that the Fourier transform of $\nabla (u * f)$ is $2 \pi i \cdot \widehat{u} \cdot \widehat{f} \xi$, this supremum is equal to
+    %
+    \[ \| \xi \cdot \widehat{u} \|_{L^\infty(\RR^d)}, \]
+    %
+    which is the quantity we wish to minimize. Steinerberger obtains an uncertainty principle that for $\alpha > 0$ and $\beta > d/2$, and any $u \in L^1(\RR^d)$,
+    %
+    \[ \| |\xi|^\beta \cdot \widehat{u} \|_{L^\infty(\RR^d)}^\alpha \cdot \| |x|^\alpha \cdot u \|_{L^1(\RR^d)}^\beta \gtrsim_{\alpha,\beta,d} \| u \|_{L^1(\RR^d)}^{\alpha + \beta}. \]
+    %
+    In this problem we only care about $d = 1$ and $\beta = 1$. Suprisingly, for certain parameters, the minimizer is \emph{not smooth}, unlike in many problems in analysis. Indeed, for $\alpha \in \{ 2,3,4,5,6 \}$, the indicator function of $[-1/2,1/2]$ is a local minimizer for the appropriate value of $\lambda$.
+
+    I think an interesting problem is determining what happens if we consider tighter bounds on the moments. In particular, what happens if we consider the problem under averaging by a probability measure $\mu$ such that $\| \mu \|_{\psi_2} \leq \lambda$, where $\| \cdot \|_{\psi_2}$ is the sub-Gaussian norm of a random variable. This bound implies an asymptotic bound on all sufficiently large moments. Is the optimal measure here also uniformly distributed on an interval? The uncertainty principle of Steinerberger shows that if $\mu$ is a function, then for $\alpha < 2/d$,
+    %
+    \[ \| \mu \|_{\psi_2} \gtrsim_\alpha \frac{1}{\| |\xi|^{1/\alpha} \cdot \widehat{\mu} \|_{L^\infty(\RR^d)}^\alpha}, \]
+    %
+    Thus if $\| \mu \|_{\psi_2} \leq \lambda$, then for each $\alpha < 2/d$, there exists a frequency $\xi_\alpha \in \RR^d$ such that
+    %
+    \[ |\widehat{\mu}(\xi_\alpha)| \gtrsim_\alpha |\xi_\alpha|^{-1/\alpha} \lambda^{-1/\alpha}. \]
+    %
+    Thus $\mu$ is somewhat singular in the sense of Fourier dimension with dimension smaller than $d/2$.
+\end{itemize}
+%
+I also emailed Thomas K\"{o}rner to try and get more info on the probabilistic calculations in his paper. Hopefully he'll email back (even though his paper is a decade old), and I'll be able to get more intuition about his technique.
 
 
 
