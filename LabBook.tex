@@ -51,6 +51,30 @@
 \rfoot{\textsc{\thepage}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% To Do List
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[nowatermark]{fixmetodonotes}
+
+\newcommand{\currentchapter}{}
+\let\oldchapter\chapter
+\renewcommand{\chapter}[1]{\oldchapter{#1}\renewcommand{\currentchapter}{#1}}
+
+\usepackage{tocloft}
+
+\newlistof{todo}{lotd}{TODO List}
+
+\newcommand{\TODO}[1]{%
+    \refstepcounter{todo}
+    \addcontentsline{lotd}{todo}{{{\bf \currentchapter}: #1}}
+    {#1}
+}
+
+\newcommand{\TODODONE}[1]{
+    {#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Environments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -161,7 +185,7 @@
 
 
 
-
+\listoftodo
 
 
 
@@ -169,21 +193,21 @@
 
 \begin{importanttodo}
 \begin{itemize}
-    \item Formally prove the space $X$ given by the norms in \eqref{OurFrechetSpace} is complete. \textbf{See \nameref{01062020}}
+    \item \TODODONE{Formally prove the space $X$ given by the norms in \eqref{OurFrechetSpace} is complete. \textbf{See \nameref{01062020}}}
 
-    \item Try and understand the probabalistic smoothness calculations given in Lemma 7.4 of \cite{Korner2009}. Once this is done, we can try adapting it to our more general situation. \textbf{See \nameref{04092020}}
+    \item \TODODONE{Try and understand the probabalistic smoothness calculations given in Lemma 7.4 of \cite{Korner2009}. Once this is done, we can try adapting it to our more general situation. \textbf{See \nameref{04092020}}}
 \end{itemize}
 \end{importanttodo}
 
 \begin{maybedo}
 \begin{itemize}
-    \item Today I found an interesting survey on the Fourier Dimension \cite{Ekstrom2017}. If I find the time I should read through it more thoroughly to get some intuition. \textbf{See \nameref{31052020}}
+    \item \TODODONE{Today I found an interesting survey on the Fourier Dimension \cite{Ekstrom2017}. If I find the time I should read through it more thoroughly to get some intuition. \textbf{See \nameref{31052020}}}
 
-    \item I also found a survey on the application of the probabilistic method and the Baire category theorem in Harmonic analysis \cite{Kahane2000}. I feel this method is very exploitable in the types of problems I currently deal with, so if only for culture, this should be a useful read.
+    \item \TODO{I also found a survey on the application of the probabilistic method and the Baire category theorem in Harmonic analysis \cite{Kahane2000}. I feel this method is very exploitable in the types of problems I currently deal with, so if only for culture, this should be a useful read.}
 \end{itemize}
 \end{maybedo}
 
-My main goals today were to finish up the slides, for my talk on Fourier dimension in pattern avoidance problems at the 2020 Ottawa Math Conference. I have essentially completed these slides; all that remains is to polish them up, and practice giving the presentation. My main goal during the presentation is to show that viewing avoiding sets $Z$ geometrically leads to interesting questions, that the geometric quantities we consider lead to important consequences, and that the Fourier dimension question I am currently considering is interesting to study. I also thought about an idea which seemed to prevent adapting our result obtained by the `queuing approach' in \cite{Denson2019} to Thomas K\"{o}rner's Baire category approach in \cite{Korner2009}, as well as finding a counterexample in a paper which removes the trivial case of \cite{Denson2019} from the Fourier dimension case.
+My main goals today were to finish up the slides, for my talk on Fourier dimension in pattern avoidance problems at the 2020 Ottawa Math Conference. I have essentially completed these slides; all that remains is to polish them up, and practice giving the presentation. My main goal during the presentation is to show that viewing avoiding sets $Z$ geometrically leads to interesting questions, that the geometric quantities we consider lead to important consequences, and that the Fourier dimension question I am currently considering is interesting to study. I also thought about an idea which enables us to allow us to use the type of bounds in \cite{Denson2019} to Thomas K\"{o}rner's Baire category method in \cite{Korner2009}. I also found an example of how Fourier dimension behaves weirdly to show that the case of \cite{Denson2019} when $s < d$ is nontrivial in the Fourier dimension scheme.
 
 %-----------------------------------------
 
@@ -240,9 +264,9 @@ In \cite{Ekstrom2014}, I found a result which constructs two disjoint, Borel set
 
 \begin{maybedo}
 \begin{itemize}
-    \item Read Kahane's book \cite{Kahane1994} to obtain ideas on possible Fourier dimension constructions.
+    \item \TODO{Read Kahane's book \cite{Kahane1994} to obtain ideas on possible Fourier dimension constructions.}
 
-    \item Read Lyon's article \cite{Lyons1995} to obtain cultural background information about Fourier dimension in harmonic analysis.
+    \item \TODO{Read Lyon's article \cite{Lyons1995} to obtain cultural background information about Fourier dimension in harmonic analysis.}
 \end{itemize}
 \end{maybedo}
 
@@ -329,7 +353,7 @@ Looking at the references shows a list of books that might be useful to consult 
 
 \begin{importanttodo}
 \begin{itemize}
-    \item Edit the proof in our existing draft on Fourier dimension to work completely rigorously for the new Frech\'{e}t space. \textbf{See \nameref{02062020}}
+    \item \TODODONE{Edit the proof in our existing draft on Fourier dimension to work completely rigorously for the new Frech\'{e}t space. \textbf{See \nameref{02062020}}}
 \end{itemize}
 \end{importanttodo}
 
@@ -366,11 +390,11 @@ and then incorporate this into the paper.
 
 \begin{importanttodo}
     \begin{itemize}
-        \item Look back on decoupling argument and see if we can still utilize it to help obtain the probability bounds needed in our construction.
+        \item \TODO{Look back on decoupling argument and see if we can still utilize it to help obtain the probability bounds needed in our construction.}
 
-        \item Try and solve the tensorized special case of the argument.
+        \item \TODO{Try and solve the tensorized special case of the argument.}
 
-        \item Prove that if we can prove the analogous problem in the discrete setting, then we automatically obtain the result in the general setting.
+        \item \TODO{Prove that if we can prove the analogous problem in the discrete setting, then we automatically obtain the result in the general setting.}
     \end{itemize}
 \end{importanttodo}
 
@@ -398,7 +422,7 @@ then our goal is to obtain square root cancellation in the sum $Y = Y_1 + \dots 
 %
 \begin{itemize}
     \item The variables $\{ Y_k \}$ are identically distributed (but not independent) with $|Y_k| \leq 1$ for all $k \in \{ 1, \dots, K \}$.
-    \item The variables are only `$n$ coupled' with one another, so if $K$ is large, the variables are not too coupled with one another. More precisely, 
+    \item The variables are only `$n$ coupled' with one another, so if $K$ is large, the variables are not too coupled with one another. 
 \end{itemize}
 %
 However, I am unable to find a general concentration result which can give us this result. To consider a simple analysis, let us suppose that there are sets $W_1, \dots, W_n$ such that
@@ -487,15 +511,15 @@ This set seems quite tractable to study, and we should try and obtain the result
 
 \begin{maybedo}
     \begin{itemize}
-        \item Read Krantz's notes \cite{Krantz2007} to prepare for researching more general Harmonic analysis again.
+        \item \TODO{Read Krantz's notes \cite{Krantz2007} to prepare for researching more general Harmonic analysis again.}
 
-        \item Look through Marco Vitturi's lecture notes to see which are worth working through.
+        \item \TODO{Look through Marco Vitturi's lecture notes to see which are worth working through.}
 
-        \item Read through Steven Krantz's book \cite{Krantz2002} to learn about real analytic functions.
+        \item \TODO{Read through Steven Krantz's book \cite{Krantz2002} to learn about real analytic functions.}
 
-        \item Read through William Ziemer's book \cite{Ziemer1989} on Sobolev theory.
+        \item \TODO{Read through William Ziemer's book \cite{Ziemer1989} on Sobolev theory.}
 
-        \item Read through Evan and Gariepy's book \cite{Evans1992} on the relation between Sobolev spaces and Hausdorff dimension.
+        \item \TODO{Read through Evan and Gariepy's book \cite{Evans1992} on the relation between Sobolev spaces and Hausdorff dimension.}
     \end{itemize}
 \end{maybedo}
 
@@ -526,7 +550,7 @@ It's been two months since my last research entry, given that I have spent the l
 
 \begin{importanttodo}
 \begin{itemize}
-    \item Look into uncertainty principles on Orlicz spaces in order to extend the smoothing bound as required.
+    \item \TODO{Look into uncertainty principles on Orlicz spaces in order to extend the smoothing bound as required.}
 \end{itemize}
 \end{importanttodo}
 
@@ -618,6 +642,274 @@ I also emailed Thomas K\"{o}rner to try and get more info on the probabilistic c
 
 
 
+
+
+
+
+
+
+\chapter{Tuesday 2nd February 2021} \label{02022021}
+
+\begin{maybedo}
+    \begin{itemize}
+        \item \TODO{Andreas wants me to study a characterization of radial Fourier multipliers. Is it possible to study characterizations of multipliers which are symmetric with respect to other families of group actions, and how do things improve in this scenario?}
+
+        \item \TODO{Can one apply an analytic interpolation argument to show an endpoint estimate holds for this technique?}
+
+        \item \TODO{Are there Knapp examples which show this result is tight?}
+    \end{itemize}
+\end{maybedo}
+
+Today I read through Tobias Weth and Tolga Yesil's paper \emph{Fourier-Extension Estimates for Symmetric Functions and Applications to Nonlinear Helmholtz Equations}. Here are some notes I took on this paper:
+%
+\begin{itemize}
+    \item The classical Stein-Tomas theorem, in it's dual form, says that if $E$ is the extension operator, defined for each $f \in C(S^{d-1})$ by setting
+    %
+    \[ Ef(x) = \int_{S^{d-1}} e^{2 \pi i \xi \cdot x} f(\xi) d\sigma(\xi) = \mathcal{F}^{-1}(f \sigma)(x), \]
+    %
+    then $\| Ef \|_{L^q(\RR^d)} \lesssim_{d,q} \| f \|_{L^2(S^{d-1})}$ holds for $d \geq 2$ and
+    %
+    \[ q \geq \frac{2(d+1)}{(d-1)}. \]
+    %
+    The decay estimate $\mathcal{F}^{-1} \sigma(x) \lesssim \langle x \rangle^{-(d-1)/2}$ shows that $\mathcal{F}^{-1} \sigma \in L^q(\RR^d)$ for $q \geq 2d/(d-1)$. Thus for \emph{constant} functions $f$ we have a bound
+    %
+    \[ \| Ef \|_{L^q(\RR^d)} \lesssim_{d,q} \| f \|_{L^2(S^{d-1})} \]
+    %
+    for
+    %
+    \[ q > \frac{2d}{(d-1)}. \]
+    %
+    The goal of the present paper is to prove an intermediary between these two results. Given a subgroup $G$ of isometries of $S^{d-1}$, i.e. a subgroup of $O(d)$, let $L^2_G(S^{d-1})$ be the space of all square integrable functions $f: S^{d-1} \to \CC$ such that $f(Ax) = f(x)$ for all $A \in G$. A natural questions is to determine whether one can improve the range of values $q$ for which $E$ is bounded from $L^2_G(S^{d-1})$ to $L^q(\RR^d)$. To further improve the range of values $q$, we can introduce a subset $F \subset \RR^d$, and ask whether the extension map $E$ is bounded from $L^2_G(S^{d-1})$ to $L^q(F)$.
+
+    \item Since the Knapp example is axially symmetric, we cannot improve the bounds for $q$ without restricting to a subset of Euclidean space for such a family of symmetries. On the other hand, introducing weights can eliminate some extremizers for the standard extension bound which make the Stein result type. 
+
+    \item In this paper, for each $k > 0$ the authors consider the group of isometries $G = O(d-k) \times O(k)$. For each $\alpha \geq \beta > 0$ the authors consider the sets
+    %
+    \[ F_{\alpha \beta} = \{ (x,y) \in \RR^{n-k} \times \RR^k : |x| \leq c \max(|y|^{-\alpha},|y|^{-\beta}) \} \]
+    %
+    for some $c > 0 $, and prove bounds of the form
+    %
+    \[ \| Ef \|_{L^q(F_{\alpha \beta})} \lesssim \| f \|_{L^2(S^{d-1})}. \]
+    %
+    This bound holds for the following parameters:
+    %
+    \begin{itemize}
+        \item If $k = 1$, $\alpha,\beta > 1/(d-1)$, and
+        %
+        \[ q > \frac{2(d-1-1/\alpha)}{d-2}. \]
+        %
+        Similarily, if $k = d-1$, $\alpha,\beta < (d-1)$ and
+        %
+        \[ q > \frac{2(d-1) - 2\beta}{d - 2}. \]
+
+        \item If $k \in \{ 2, \dots, d - 2 \}$, and
+        %
+        \[ q > \max \left\{ \frac{2k - 2\beta(d-k)}{k-1}, \frac{2(d-k) - 2/\alpha}{d - k - 1} \right\}. \]
+    \end{itemize}
+    %
+    I am not sure if these results are tight. Can one come up with symmetric variants of the Knapp example which prove this tightness. Can one apply an analytic interpolation argument to give the endpoint result?
+
+    \item If $f \in L^2_G(S^{d-1})$, then there exists a function $u: [0,1] \to \CC$ such that $u(|x|) = f(x,y)$ for each $x \in \RR^{d-k}$ and $y \in \RR^k$ such that $|x|^2 + |y|^2 = 1$. A simple location applying the coarea formula implies that if $\sigma_1$ is the surface measure on $S^{d-k-1}$ and $\sigma_2$ is the surface measure on $S^{k-1}$, then
+    %
+    \[ Ef(x,y) \propto_{d,k} \int_0^1 u(r) r^{d-k-1} (1 - r^2)^{k/2 - 1} \widehat{\sigma_1}(rx) \widehat{\sigma_2}((1 - r^2)^{1/2} y)\; dr. \]
+    %
+    Taking in absolute values shows that
+    %
+    \begin{align*}
+        |Ef(x,y)| &\lesssim_{d,k} \left( \int_0^1 r^{d-k-1} (1 - r^2)^{k/2 - 1} |\widehat{\sigma_1}(rx)|^2 |\widehat{\sigma_2}((1 - r^2)^{1/2}y)|^2\; dr \right)^{1/2} \cdot \| f \|_{L^2(S^{d-1})}.
+    \end{align*}
+    %
+    We may assume, without loss of generality, that $q \geq 2$, so that
+    %
+    \begin{align*}
+        \| Ef \|_{L^q(F_{\alpha,\beta})} &\lesssim_{d,k} \left( \int_{F_{\alpha \beta}} \left( \int_0^1 r^{d-k-1} (1 - r^2)^{k/2 - 1} |\widehat{\sigma_1}(rx)|^2 |\widehat{\sigma_2}((1 - r^2)^{1/2}y)|^2\; dr \right)^{q/2}\; dx\; dy \right)^{1/q} \cdot \| f \|_{L^2(S^{d-1})}\\
+        &\leq \left( \int_0^1 r^{(d-k-1)(q/2)} (1 - r^2)^{(k/2-1)(q/2)} \int_{F_{\alpha \beta}} |\widehat{\sigma_1}(rx)|^q |\widehat{\sigma_2}((1 - r^2)^{1/2} y)|^q\; dr\; dx\; dy \right)^{1/q}\\
+        &= \left( \int_0^1 r^{(d-k-1)(q/2) - (d-k)} (1 - r^2)^{(k/2-1)(q/2) - k/2} H_{\alpha\beta}(r)\; dr \right)^{1/q}.
+    \end{align*}
+    %
+    Here
+    %
+    \[ H_{\alpha \beta}(r) = \int_{\RR^d} \mathbf{I}_{F_{\alpha \beta}}(x,y) |\widehat{\sigma_1}(x)|^q |\widehat{\sigma_2}(y)|^q\; dx\; dy. \]
+    %
+    To bound the integral, one uses the standard stationary phase decay estimates for unit spheres, and then some tricky, case by case manipulations. It is assume that $q > 4$ in the argument, but I'm not sure why intuitively. This also occurs in Geoffrey Bentsen's argument in the paper \emph{$L^p$ Regularity Estimates for a Class of Integral Operators With Fold Blowdown Singularities}, which might be worth reading.
+
+    \item Given $f \in \mathcal{S}_G(\RR^d)$, let $Rf$ be the solution to the Helmholtz equation $-\Delta u - u = f$ subject to Sommerfeld's outgoing radiation condition $\partial_r u(x) - i u(x) = o(|x|^{-(d-1)/2})$. Then there is a classical result (Kenig, Ruiz, Sogge) that says that
+    %
+    \[ \| Rf \|_{L^{p'}(\RR^d)} \lesssim \| f \|_{L^p(\RR^d)}  \]
+    %
+    if $2(d+1)/(d-1) \leq p \leq 2d/(d-2)$. The relation proved in this paper is that if we have a bound
+    %
+    \[ \| w \cdot Ef \|_{L^q(\RR^d)} \lesssim \| f \|_{L^2_G(S^{d-1})} \]
+    %
+    and suppose
+    %
+    \[ 1 - \frac{2}{d} \leq 1/p + 1/r < \frac{q + 2}{2q} \frac{d-1}{d}, \]
+    %
+    that if $q \geq 2$, then $\max(1/r,1/p) < (d-1)/2d$, and if $q < 2$,
+    %
+    \begin{align*}
+        \frac{2q}{(d-1)(2 - q)p} - &\frac{(d-1)q - 2(d-3)}{2d(2-q)}\\
+        &< 1/r\\
+        &\quad< \frac{(d-1)(2-q)}{2pq} + \frac{(d-1)[(d-1)q - 2(d-3)]}{4dq}.
+    \end{align*}
+    %
+    Then $\| w R(wf) \|_{L^r(\RR^d)} \lesssim \| f \|_{L^{p'}(\RR^d)}$ for any $f \in \mathcal{S}_G(\RR^d)$.
+\end{itemize}
+
+
+
+
+
+
+
+\chapter{Thursday 4th February 2021} \label{02022021}
+
+\begin{importanttodo}
+    \begin{itemize}
+        \item \TODO{Determine whether the problem about the image of sets has been studied in the literature before.}
+    \end{itemize}
+\end{importanttodo}
+
+\section{Fourier Dimension Under Curved Maps}
+
+One interesting application of the main result of my paper \emph{Large Salem Sets Avoiding Configurations} is that if $\gamma: [0,1] \to \RR^d$ is a Lipschitz curve, then there exists $E \subset [0,1]$ with $\fordim(E) \geq 4/9$ such that $\gamma(E)$ contains no isosceles triangles. It would be interesting if, for some families of curves, we could conclude from this that $\fordim(\gamma(E)) \geq 4/9$. Today I tried to do some computations to show this was true when $d = 2$ and $\gamma$ had nonvanishing curvature, but I ran into trouble. The main technique I tried was that if $\mu$ is supported on $E$ and $|\widehat{\mu}(\xi)| \lesssim |\xi|^{-2/9}$, then
+%
+\begin{align*}
+    \int e^{2 \pi i \xi \cdot x} d\gamma_* \mu(x) &= \int_0^1 e^{2 \pi i \xi \cdot \gamma(t)} d\mu(x)\\
+    &= \sum_{n = -\infty}^\infty \widehat{\mu}(n) \int_0^1 e^{2 \pi i(\xi \cdot \gamma(t) - nt)}\; dt\\
+    &= \sum_{n = -\infty}^\infty \widehat{\mu}(n) I(\xi,n)
+\end{align*}
+%
+There are many problems that we run into with this approach, however. Standard applications of stationary phase are reasonable when $|n| \ll |\xi|$ and $\xi$ is aligned with $\gamma'$, because we conclude that
+%
+\[ |I(\xi,n)| \lesssim \frac{1}{|\xi|} \]
+%
+which shows that
+%
+\[ \sum_{|n| \ll |\xi|} |\widehat{\mu}(n)| |I(\xi,n)| \lesssim |\xi|^{- 2/9}. \]
+%
+If $|n| \gg |\xi|$, then stationary phase shows that
+%
+\[ |I(\xi,n)| \lesssim 1/|n| \]
+%
+which gives that
+%
+\[ \sum_{|n| \gg |\xi|} |\widehat{\mu}(n)| |I(\xi,n)| \lesssim |\xi|^{-2/9} \]
+%
+In this case, the only problem that remains is when $|\xi| \approx |n|$, in which case there can be stationary points that cause problems. Furthermore, it is unclear how to use curvature to get decay if $\xi$ is not aligned with $\gamma'$, but with $\gamma''$. I couldn't seem to find papers discussing this kind of problem, so maybe I should ask Andreas / Malabika / Rob whether this kind of problem has been considered in the literature before.
+
+
+
+
+
+
+
+
+
+\chapter{Monday 15th February 2021} \label{15022021}
+
+\begin{importanttodo}
+    \begin{itemize}
+        \item Plug in tight incidence example into radial multiplier problem. Does this give sharp examples here?
+
+        \item In the Heisenberg group, are complex lines which are close to being coplanar, also close to being coincident?
+    \end{itemize}
+\end{importanttodo}
+
+Today I read through Josh Zahl's paper \emph{Sphere tangencies, line incidences, and Lie's line-sphere correspondence}, which uses Lie sphere theory to bound the number of tangencies between a family of spheres in $\RR^3$. I'm hoping that the techniques in this paper can help me understand the radial multiplier problem I'm currently working on.
+
+Let $S_1,S_2$ be spheres of radii $r_1$ and $r_2$, and centers $x_1,x_2 \in \RR^3$. These spheres have a tangential intersection if $|x_1 - x_2| = |r_1 + r_2|$, where we have an \emph{external tangency}, or $|x_1 - x_2| = |r_1 - r_2|$, where we have an \emph{internal tangency}. The goal of Josh's paper is to study the combinatorial properties of the contact points of a finite family of spheres $\mathcal{S}$ in $\RR^3$.
+
+Given a set $\mathcal{S}$ with $\#(\mathcal{S}) = n$, one might want to determine the maximum number of pairs $S_1,S_2 \in \mathcal{S}$ such that $S_1$ and $S_2$ are in contact with one another. However, it is possible for the number of contact pairs to be as high as $n^2$. In fact, there exist infinite families, known as \emph{pencils of contracting spheres}, such that every sphere is in contact with every other sphere in the family. We may therefore modify the problem, and ask, for a fixed $2 \leq k \leq n$, how many pencils $\mathcal{P}$ there are such that $\#(\mathcal{S} \cap \mathcal{P}) \geq k$ (we say that $\mathcal{P}$ is \emph{$k$ rich}).
+
+\begin{theorem}
+    For $3 \leq k \leq n$, the set $\mathcal{S}$ determines $O(n^{3/2} k^{-5/2} + n/k)$ $k$-rich pencils.
+\end{theorem}
+
+In this situation, things can go wrong for $k = 2$. Indeed, there exists pairs of infinite families $\mathcal{C}_1$ and $\mathcal{C}_2$, such that each sphere in $\mathcal{C}_1$ is in contact with every sphere in $\mathcal{C}_2$, but no sphere in $\mathcal{C}_1$ is in contact with any other sphere in $\mathcal{C}_1$. We call these a \emph{pair of complimentary conic sections}. If we let $\mathcal{S} = \mathcal{S}_1 \cup \mathcal{S}_2$, where $\mathcal{S}_1 \subset \mathcal{C}_1$, $\mathcal{S}_2 \subset \mathcal{C}_2$, and $\#(\mathcal{S}_1) = \#(\mathcal{S}_2) = n/2$, then $\mathcal{S}$ determines $n^2/4$ distinct 2-rich pencils. Thus we do not get a $O(n^{3/2})$ bound as hinted at by the last theorem. This example is essentially the only thing that can go wrong.
+
+\begin{theorem}
+    Either there is a pair of conic sections $\mathcal{C}_1$ and $\mathcal{C}_2$ such that $\#(\mathcal{S} \cap \mathcal{C}_i) \geq \sqrt{n}$, or there are $O(n^{3/2})$ $2$-rich pencils.
+\end{theorem}
+
+A corollary of these two theorems is that, provided $\mathcal{S}$ does not contain many spheres in a single pencil, nor many spheres in a pair of conic sections, then we have an incidence bound.
+
+\begin{theorem}
+    If $\mathcal{S}$ does not depend any $\sqrt{n}$-rich pencils, and there do not exist any conic sections $\mathcal{C}_1$ and $\mathcal{C}_2$ such that $\#(\mathcal{S} \cap \mathcal{C}_i) \geq \sqrt{n}$, then there are at most $O(n^{3/2})$ pairs in $\mathcal{S}$ which are in contact with one another.
+\end{theorem}
+
+The idea of the paper is to exploit the theory of `Lie sphere theory'. The idea here is to parameterize the family of all `oriented' spheres in $\RR^3$ with the quadric surface
+%
+\[ Q = \{ \xi \in \mathbf{P}^5: \xi_1^2 + \dots + \xi_4^2 - \xi_5^2 - \xi_0^2 = 0 \}, \]
+%
+such that if we define bilinear form
+%
+\[ \langle \xi, \eta \rangle = \xi_1 \eta_1 + \dots + \xi_4 \eta_4 - \xi_5 \eta_5 - \xi_0 \eta_0, \]
+%
+then two spheres corresponding to points $\xi,\eta \in Q$ are in contact if and only if $\langle \xi, \eta \rangle = 0$. Another useful geometry is due to Pl\"{u}cker, which parameterizes the family of all lines in $\RR^3$ by the quadric surface
+%
+\[ W = \{ \xi \in \mathbf{P}^5: \xi_1\xi_6 - \xi_2\xi_5 + \xi_3\xi_4 = 0 \}. \]
+%
+If we associate the bilinear form
+%
+\[ (\xi,\eta) = \xi_1\eta_6 - \xi_2\eta_5 + \xi_3\eta_4 + \xi_4\eta_3 - \xi_5\eta_2 + \xi_6 \eta_1, \]
+%
+then two lines corresponding to points $\xi,\eta \in W$ are coplanar if and only if $(\xi,\eta) = 0$.
+
+Both $Q$ and $W$ are quadric surfaces in $\mathbf{P}^5$ associated to bilinear forms. But the bilinear forms have different signatures over the real numbers, so they are projectively equivalent. However, all nondegenerate bilinear forms over the \emph{complex numbers} are equivalent, so if we complexify, forming the quadric surfaces $Q^{\mathbf{C}}$ and $W^{\mathbf{C}}$ in $\CC \PP^5$, then there is a natural projective equivalence $\phi: Q^{\mathbf{C}} \to W^{\mathbf{C}}$. The elements of $Q^{\mathbf{C}}$ do not seem to parameterize anything relevant to this problem, but $W^{\mathbf{C}}$ parameterizes the family of all \emph{complex lines} in $\CC^3$. And it turns out that we can choose $\phi$ in such a way that the points in $\phi(Q^{\CC})$ correspond to complex lines lying entirely in the \emph{Heisenberg group}
+%
+\[ \mathbf{H} = \{ (x,y,z) \in \CC^3: \text{Im}(z) = \text{Im}(x\overline{y}) \}. \]
+%
+Lines in $\mathbf{H}$ have the special property that, if they are coplanar, then they intersect (possibly at $\infty$). Since two spheres corresponding to $\xi,\eta \in Q$ are in contact if and only if $\phi(\xi)$ and $\phi(\eta)$ correspond to lines in coplanar, then if $\xi$ and $\eta$ are in contact, $\phi(\xi)$ and $\phi(\eta)$ correspond to lines that intersect in $\RR^3$. Thus we have reduced the combinatorial problem of spheres in contact to a standard incidence problem in $\RR^3$, where we can apply standard techniques of incidence geometry in $\RR^3$, i.e. detecting ruled surfaces.
+
+Unfortunately, I don't think these techniques will apply to the radial multiplier problem, since it seems very important for lines to be exactly incident for us to apply the correspondence - two spheres may be `close' to being in contact, which would imply that the complex lines are `close' to being coplanar, but this might not necessarily imply that these lines are `close' to being coincident. Perhaps it might be a good idea to double check this is the case? Also, it might be good to try and plug in the pencils of contacting spheres, and conic sections, into the radial multiplier problem to see if they give tight estimates.
+
+
+
+
+
+
+
+
+
+\chapter{Tuesday 4th March, 2021} \label{04032021}
+
+Today I attended the talk of Diogo Oliveira e Silva on the topic of sharp restriction theory, which focused on the problem of extremizers for the Tomas-Stein theorem. The main result is that if $d \in \{ 3, 4, 5, 6, 7 \}$, and $q \geq 6$ is an even integer, then constant functions are the unique maximizers to the extension operator from $L^2(S^{d-1})$ to $L^q(\RR^d)$. Here were the main techniques in the case where $d = 3$ and $q = 6$:
+%
+\begin{itemize}
+    \item (Calculus of Variations): If $f$ maximizes the $L^2(S^{d-1})$ to $L^q(\RR^d)$ bound, and $\| f \|_{L^2(S^{d-1})} = 1$, then
+    %
+    \begin{align*}
+        \| E \|^6 &= \| Ef \|_{L^6(\RR^d)}^6\\
+        &= \langle |Ef|^4 Ef, Ef \rangle\\
+        &= \langle R(|Ef|^4 Ef), f \rangle\\
+        &\leq \| E \| \| |Ef|^5 \|_{L^{6/5}(\RR^d)}\\
+        &= \| E \| \| Ef \|_{L^6(\RR^d)}^6\\
+        &= \| E \|^6.
+    \end{align*}
+    %
+    Thus all the inequalities in this chain are actually tight. Thus $R(|Ef|^4 Ef) = \lambda f$ for some scalar $\lambda$. Expanding this expression out, this means that
+    %
+    \[ (f\sigma * f\sigma * f\sigma) * (f_* \sigma * f_* \sigma * f_* \sigma) = \lambda f \]
+    %
+    for some scalar $\lambda$, where $f_*(x) = f(-x)$ is the antipodal reflection of $f$. One of the primary goals of this paper is to show that this equation implies that $f \in C^\infty(S^{d-1})$.
+
+    \item (Symmetry): Since $\sigma$ is a positive measure, $\| (f\sigma)^{(* 3)} \|_{L^q(\RR^d)} \leq \| (|f| \sigma)^{(* 3)} \|_{L^q(\RR^d)}$, so $f \geq 0$ almost everywhere. Also, if
+    %
+    \[ f_{\#} = \sqrt{\frac{|f|^2 + |f_*|^2}{2}} \]
+    %
+    is the antipodal symmetrization of $f$, $\| (f \sigma)^{(* 3)} \|_{L^q(\RR^d)} \leq \| (f_\# \sigma)^{(* 3)} \|_{L^q(\RR^d)}$ (this fact relies strongly on the evenness of $q$). Thus $f$ is almost everywhere antipodal.
+
+    \item (Compactness): Let $T_f = g * K_f$, where $K_f = R(|Ef|^4)$. Then $T_f(f) = \lambda f$, i.e. $f$ is an eigenvector of $T_f$. Now $T_f$ is self-adjoint, positive definite, Hilbert-Schmidt, and lies in the trace-class, so we have a nice characterization of these eigenvectors.
+
+    \item (Lie Theory): We have an exponential map $\exp: \mathfrak{so}(3) \to SO(3)$, and
+    %
+    \[ \frac{\| Ef \circ e^{tA} \|}{\| f \circ e^{tA} \|} = \frac{\| Ef \|}{\| f \|}. \]
+    %
+    Moreover, if $T_f(f) = \lambda f$, then $T_f(\partial_A f) = (\lambda/5) \partial_A f$, for all $A \in \mathfrak{so}(3)$. Now $T_f(\omega_i f) = (\lambda/5) \omega_i f$ for $i \in \{ 1, 2, 3 \}$. Moreover, there is $A,B$ in $\mathfrak{so}(3)$, such that $\{ \partial_A f, \partial_B f, f, \omega_1 f, \oemga_2 f, \omega_3 f \}$ are linearly independent. The key to this argument is that the codimension of any proper nontrivial subalgebra of $\mathfrak{so}(3)$ is 2.
+
+    \item (Probability Theory): I didn't quite follow this, so if I get the time I should glance at Diogo's paper to figure out how it's useful.
+\end{itemize}
 
 
 \bibliographystyle{plain}

@@ -1,0 +1,16 @@
+\contentsline {todo}{{{\bf Saturday, 30 May 2020}: I also found a survey on the application of the probabilistic method and the Baire category theorem in Harmonic analysis \cite {Kahane2000}. I feel this method is very exploitable in the types of problems I currently deal with, so if only for culture, this should be a useful read.}}{5}{todo.1}%
+\contentsline {todo}{{{\bf Sunday, 31st May 2020}: Read Kahane's book \cite {Kahane1994} to obtain ideas on possible Fourier dimension constructions.}}{7}{todo.2}%
+\contentsline {todo}{{{\bf Sunday, 31st May 2020}: Read Lyon's article \cite {Lyons1995} to obtain cultural background information about Fourier dimension in harmonic analysis.}}{7}{todo.3}%
+\contentsline {todo}{{{\bf Wednesday 3rd June 2020}: Look back on decoupling argument and see if we can still utilize it to help obtain the probability bounds needed in our construction.}}{12}{todo.4}%
+\contentsline {todo}{{{\bf Wednesday 3rd June 2020}: Try and solve the tensorized special case of the argument.}}{12}{todo.5}%
+\contentsline {todo}{{{\bf Wednesday 3rd June 2020}: Prove that if we can prove the analogous problem in the discrete setting, then we automatically obtain the result in the general setting.}}{12}{todo.6}%
+\contentsline {todo}{{{\bf Thursday 20th August 2020}: Read Krantz's notes \cite {Krantz2007} to prepare for researching more general Harmonic analysis again.}}{16}{todo.7}%
+\contentsline {todo}{{{\bf Thursday 20th August 2020}: Look through Marco Vitturi's lecture notes to see which are worth working through.}}{16}{todo.8}%
+\contentsline {todo}{{{\bf Thursday 20th August 2020}: Read through Steven Krantz's book \cite {Krantz2002} to learn about real analytic functions.}}{16}{todo.9}%
+\contentsline {todo}{{{\bf Thursday 20th August 2020}: Read through William Ziemer's book \cite {Ziemer1989} on Sobolev theory.}}{16}{todo.10}%
+\contentsline {todo}{{{\bf Thursday 20th August 2020}: Read through Evan and Gariepy's book \cite {Evans1992} on the relation between Sobolev spaces and Hausdorff dimension.}}{16}{todo.11}%
+\contentsline {todo}{{{\bf Friday, 4th September 2020}: Look into uncertainty principles on Orlicz spaces in order to extend the smoothing bound as required.}}{17}{todo.12}%
+\contentsline {todo}{{{\bf Tuesday 2nd February 2021}: Andreas wants me to study a characterization of radial Fourier multipliers. Is it possible to study characterizations of multipliers which are symmetric with respect to other families of group actions, and how do things improve in this scenario?}}{20}{todo.13}%
+\contentsline {todo}{{{\bf Tuesday 2nd February 2021}: Can one apply an analytic interpolation argument to show an endpoint estimate holds for this technique?}}{20}{todo.14}%
+\contentsline {todo}{{{\bf Tuesday 2nd February 2021}: Are there Knapp examples which show this result is tight?}}{20}{todo.15}%
+\contentsline {todo}{{{\bf Thursday 4th February 2021}: Determine whether the problem about the image of sets has been studied in the literature before.}}{23}{todo.16}%
